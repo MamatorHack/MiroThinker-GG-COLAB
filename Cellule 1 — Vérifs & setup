@@ -1,0 +1,11 @@
+import os, sys, subprocess, textwrap, platform, torch
+
+print("Python:", sys.version)
+print("CUDA available:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("GPU:", torch.cuda.get_device_name(0))
+else:
+    print("⚠️ Active bien le GPU dans Colab: Exécution > Modifier le type d’exécution > GPU")
+
+# Versions utiles (optionnel)
+!nvidia-smi || true
