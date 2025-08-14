@@ -1,0 +1,24 @@
+from transformers import TextStreamer
+
+def generate(prompt, max_new_tokens=384, temperature=0.7, top_p=0.9):
+    input_ids = tok(prompt, return_tensors="pt").to(model.device)
+    streamer = TextStreamer(tok, skip_prompt=True, skip_special_tokens=True)
+    with torch.no_grad():
+        out_ids = model.generate(
+            **input_ids,
+            do_sample=True,
+            temperature=temperature,
+            top_p=top_p,
+            max_new_tokens=max_new_tokens,
+            streamer=streamer
+        )
+    text = tok.decode(out_ids[0], skip_special_tokens=True)
+    return text
+
+test_prompt = """Tu es un agent de recherche. Tâche :
+1) Donne-moi 3 tendances 2025 en IA open-source (modèles, agents, benchmarks)
+2) Cite des sources (titres + liens)
+3) Résume en 120 mots, structuré en bullets
+"""
+
+_ = generate(test_prompt)
