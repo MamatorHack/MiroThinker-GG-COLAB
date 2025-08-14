@@ -1,1 +1,1 @@
-# MamatorHack-MiroThinker-GG-COLAB
+# MiroThinker-GG-COLAB
