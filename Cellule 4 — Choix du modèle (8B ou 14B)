@@ -1,0 +1,5 @@
+# 👇 Choisis ici :
+MODEL_ID = "miromind-ai/MiroThinker-8B-SFT-v0.1"   # léger, recommandé T4
+# MODEL_ID = "miromind-ai/MiroThinker-14B-SFT-v0.1"  # plus lourd, ok en 4-bit sur T4 (selon charge)
+
+print("Model:", MODEL_ID)
